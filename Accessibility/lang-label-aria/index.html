@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- The html with the lang defines language of the document. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lang-Label-Uages</title>
+    <style>
+        .visually-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- way 1 -->
+    <label>
+        <input type="checkbox">Subscribe to newsletter.</input>
+    </label>
+    <!-- way 1 end's -->
+
+    <br>
+    
+    <!-- way 2 -->
+    <input id="promo" name="promo" type="checkbox"></input>
+    <label for="promo">Subscribe to newsletter.</label>
+    <!-- way 2 end's -->
+
+    <br>
+
+    <!-- use of aria-labelledby with label  -->
+    <label id="dobLabel" for="dob" >Birth date:</label>
+    <span>
+        <input type="text" name="dob" id="dob" aria-labelledby="dobLabel dobDesc">
+        <span id="dobDesc">DD/MM/YYYY</span>
+    </span>
+    <!-- use of aria-labelledby with label ends here  -->
+
+    <br>
+
+    <!-- Incase of hidden labels -->
+    <label for="search" class="visually-hidden">Search Products: </label>
+        <input type="search" name="search" id="search">
+    <button type="submit">Search</button>
+    <!-- using aira-label -->
+    <input type="search" name="search" aria-label="Search">
+    <button type="submit">Search</button>
+    <!-- using aria-labelledby -->
+    <input type="search" name="search" aria-labelledby="searchBtn">
+    <button id="searchBtn" type="submit">Search</button>
+    <!-- Incase of hidden labels ends here -->
+
+    <br>
+
+    <!-- Placeholder -->
+    <!-- note: plcaholder should have enough contrast as well. -->
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email" placeholder="name@email.com">
+    <!-- Placeholder ends here -->
+
+    <br>
+    <a href="https://www.w3.org/TR/wai-aria-1.1/#state_prop_def" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;"  >For More information on Aria</a>
+    <br>
+    <a href="https://www.w3.org/WAI/tutorials/forms/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;"  >For More on Form Controls tutorials</a>
+
+</body>
+</html>

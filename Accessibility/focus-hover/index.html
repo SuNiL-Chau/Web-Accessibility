@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- The html with the lang defines language of the document. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus-Hover-Contrast-Uages</title>
+    <style>
+        :focus {
+            outline: 2px solid salmon;
+        }
+        .btn {
+            padding: .1rem .5rem;
+            font-size: inherit;
+            background-color: #920092;
+            color: white;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+        .btn.outline {
+            background-color: white;
+            color: #920092;
+            border: 1px solid #920092;
+        }
+        .btn:hover, .btn:focus {
+            box-shadow: 0px 5px 10px rgb(146, 0, 146, 0.3);
+        }
+        .btn:focus {
+            border-color: #920092;
+        }
+        .btn.outline:hover {
+            background-color: #920092;
+            color: white;
+        }
+        form {
+            margin-top: 30px;
+            width: 600px;
+        }
+        /* Remove default focus styles for mouse users ONLY if
+        /* :focus-visible is supported on this platform. */
+        button:focus:not(:focus-visible), input:focus:not(:focus-visible), a:focus:not(:focus-visible) {
+            outline: none;
+        }
+        /* active state */
+        a:active {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Buttons -->
+    <button type="button" class="btn">Search</button>
+    <button type="button" class="btn outline">Search</button>
+    <br><br>
+    <button type="button">Search</button>
+    <button type="button">Search</button>
+    <!-- Buttons ends here -->
+
+    <!-- form -->
+    <form>
+        <fieldset>
+            <legend>Gender:</legend>
+            <label>
+                <input name="gender" type="radio" value="male">
+                Male
+            </label>
+            <label>
+                <input name="gender" type="radio" value="female">
+                Female
+            </label>
+            <label>
+                <input name="gender" type="radio" value="other">
+                Other
+            </label>
+        </fieldset>
+    </form>
+    <!-- form ends here -->
+
+    <br>
+    <a href="https://css-tricks.com/focusing-on-focus-styles/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;" >For More information on focus stylying</a>
+
+</body>
+</html>

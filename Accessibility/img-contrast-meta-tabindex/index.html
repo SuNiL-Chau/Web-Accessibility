@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- The html with the lang defines language of the document. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta tag should be similar to this -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta tag should be similar to this in case max-scale atleast 5-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"> -->
+    <title>img-meta-tabindex-Uages</title>
+    <style>
+        :focus {
+            outline: 2px solid salmon;
+        }
+        .btn {
+            padding: .1rem .5rem;
+            font-size: inherit;
+            background-color: #920092;
+            color: white;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+        .btn2 {
+            padding: .1rem .5rem;
+            font-size: inherit;
+            background-color: #ff5fff;
+            color: white;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
+        .btn:hover, .btn:focus {
+            box-shadow: 0px 5px 10px rgb(146, 0, 146, 0.3);
+        }
+        .btn:focus {
+            border-color: #920092;
+        }
+        .btn2:hover, .btn2:focus {
+            box-shadow: 0px 5px 10px rgba(255, 95, 255, 0.3);
+        }
+        .btn2:focus {
+            border-color: #ff5fff;
+        }
+        form {
+            margin-top: 30px;
+        }
+        /* Remove default focus styles for mouse users ONLY if
+        /* :focus-visible is supported on this platform. */
+        button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- image with & without alt -->
+    <!-- perfect for decorative purpose -->
+    <img src="images/user-icon.png" alt="">
+    <!-- image with meaning -->
+    <img src="images/user-icon.png" alt="User Icon">
+    <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg" alt="User Icon" width="50px" height="50px">
+    <!-- image with & without alt ends -->
+    
+    <br><br>
+
+    <!-- Buttons -->
+    <button type="button" class="btn">Search</button>
+    <button type="button" class="btn2">Search</button>
+    <br><br>
+    <button type="button">Search</button>
+    <button type="button">Search</button>
+    <!-- Buttons ends here -->
+
+    <br><br>
+
+    <!-- Tabindex Usage -->
+    <label>
+        <textarea rows="1" cols="25">I'm Focusable by default.</textarea>
+    </label> <br> <br>
+    <button class="btn">I'm Focusable by default.</button> <br> <br>
+    <div contenteditable style="width: 310px;">I'm a Special <code>DIV</code> because I'm <code>contenteditable</code>.</div> <br>
+    <label>
+        <textarea tabindex="-1" rows="1" cols="27">You can't Focus on me 😏</textarea>
+    </label>
+    <!-- Tabindex Usage ends here -->
+
+    <br>
+    <a href="https://web.dev/labels-and-text-alternatives/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;" >For More information on Alt's</a>
+    <br>
+    <a href="https://web.dev/control-focus-with-tabindex/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;" >For More information on Tabindex</a>
+
+</body>
+</html>

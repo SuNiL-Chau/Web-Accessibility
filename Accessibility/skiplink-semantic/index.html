@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- The html with the lang defines language of the document. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- meta tag should be similar to this -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta tag should be similar to this in case max-scale atleast 5-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"> -->
+    <title>skiplink-semantic-Uages</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        :focus {
+            outline: 2px solid salmon;
+        }
+        /* Remove default focus styles for mouse users ONLY if
+        /* :focus-visible is supported on this platform. */
+        button:focus:not(:focus-visible), a:focus:not(:focus-visible) {
+            outline: none;
+        }
+        .skipLink {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        .skipLink:focus, .skipLink:active {
+            top: 0;
+        }
+        #main {
+            margin-top: 550px;
+        }
+        .modal {
+            background: salmon;
+            color: #000000;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            position: relative;
+        }
+        .modal__close {
+            position: absolute;
+            display: block;
+            top: .5rem;
+            right: .5rem;
+            font-size: 1.5rem;
+        }
+        .d-none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a class="skipLink" href="#main">Skip to main content</a>
+        
+        <ul>
+            <li><a href="#">Nav Item 1</a></li>
+            <li><a href="#">Nav Item 2</a></li>
+            <li><a href="#">Nav Item 3</a></li>
+            <li><a href="#">Nav Item 4</a></li>
+        </ul>
+    </header>
+    
+    <h1>Skip to Main Content - Keyboard Accessible</h1>
+    
+    <main id="main" role="main">
+        <p>This is the main content. In this example you will note that the "Skip to main content" link appears when I tab through the page. This allows keyboard-only users, in addition to screen reader users, an easy way to skip repetitive navigation. The key components to implementing this are</p>
+        <div class="modal" role="dialog" aria-labelledby="dialogTitle" aria-describedby="dialogDesc">
+            <h2 class="modal__title" id="dialogTitle">This Modal/Dialog Contains the pointers</h2>
+            <div class="modal__desc" id="dialogDesc">
+                <ol>
+                    <li>provide a link at the top of the page that says "skip to main content"</li>
+                    <li>have it link to an internal anchor further down in the page where the main content begins.</li>
+                    <li>use CSS :focus and :activate to make the skip link visible when the user tabs to it</li>
+                </ol>
+            </div>
+            <button class="modal__close" onclick="close()">&times;</button>
+        </div>
+    </main>
+
+    <br>
+    <a href="https://web.dev/headings-and-landmarks/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;" >For More information on semantic & skip link</a>
+    <br>
+    <a href="https://www.washington.edu/accessibility/checklist/structure/" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top: 20px;" >For More information on semantic structure</a>
+
+    <script>
+        const modal = document.querySelector('.modal');
+        const closeBtn = document.querySelector('.modal__close');
+        closeBtn.addEventListener('click', function () {
+            modal.classList.add('d-none');
+        });
+    </script>
+</body>
+</html>
